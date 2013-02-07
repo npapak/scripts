@@ -1,0 +1,27 @@
+#! /bin/bash
+
+# Variables
+location=/home/<user>/<path for backup> 
+directory=<backup directory>
+backuplocation=/home/<user>/<path for saving backup>
+log=/home/<user>/<path for logfile>/backup.log
+yesterday=`date -d '1 day ago' +'%y%m%d'`
+
+echo -e “\nBackup started: `date`” >> $log
+if [ -d $backuplocation ]; then
+
+mkdir -p $backuplocation/`date +%y%m%d`
+cd $location
+tar -cvvf $backuplocation/`date +%y%m%d`/data.`date +%H%M%S`.tar.gz $directory
+chown npapak:npapak *.*
+rm -fr $backuplocation/$yesterday
+
+echo ” completed: `date`” >> $log
+echo ” user: `whoami`” >> $log
+echo -e “\n — Backup completed –\n”;
+else
+echo ” FAILED: `date`” >> $log
+echo -e “\n– WARNING: –”
+echo -e “– BACKUP FAILED –\n”;
+fi
+
