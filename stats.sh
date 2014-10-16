@@ -52,6 +52,7 @@ unset user       # Name of the user running this script
 unset res        # Resolution of the current X session
 unset load       # Load average since the last reboot
 unset cpu        # CPU identifier information
+unset temp       # CPU temperature
 
 unset de         # Desktop environment (or window manager) running
 unset ver        # DE version information, if available
@@ -319,6 +320,9 @@ function get_processes {
 processes="$(ps aux --sort -rss | head | awk {'print $11'} | sed -n '2p')"
 }
 
+function get_temeprature {
+temp="$(sensors | grep 'Core' | awk '{print "["$3"] "}' | tr -d '\n')"
+}
 ########################################################################
 #                                 Main                                 #
 ########################################################################
@@ -328,6 +332,7 @@ clear
 get_release
 get_uptime
 get_system_stats
+get_temeprature
 get_desktop_environment
 get_processes
 
@@ -344,6 +349,7 @@ elif [ "$label" = '2' ]; then
 fi
 echo "    $(tput bold)$(tput setaf 4)CPU:$(tput sgr0)$cpu"
 echo "    $(tput bold)$(tput setaf 4)RAM (used / total):$(tput sgr0) $free $(tput bold)$(tput setaf 4)/$(tput sgr0) $ram $(tput bold)$(tput setaf 4)Mb$(tput sgr0)"
+echo "    $(tput bold)$(tput setaf 4)CPU temp:$(tput sgr0) $temp"
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
 	echo "    $(tput bold)$(tput setaf 4)Session Type: $(tput sgr0)SSH"
 else
