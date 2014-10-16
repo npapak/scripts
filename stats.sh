@@ -349,7 +349,7 @@ elif [ "$label" = '2' ]; then
 fi
 echo "    $(tput bold)$(tput setaf 4)CPU:$(tput sgr0)$cpu"
 echo "    $(tput bold)$(tput setaf 4)RAM (used / total):$(tput sgr0) $free $(tput bold)$(tput setaf 4)/$(tput sgr0) $ram $(tput bold)$(tput setaf 4)Mb$(tput sgr0)"
-echo "    $(tput bold)$(tput setaf 4)CPU temp:$(tput sgr0) $temp"
+echo "    $(tput bold)$(tput setaf 4)CPU Temperature:$(tput sgr0) $temp"
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
 	echo "    $(tput bold)$(tput setaf 4)Session Type: $(tput sgr0)SSH"
 else
