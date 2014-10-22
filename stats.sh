@@ -356,10 +356,6 @@ fi
 echo "    $(tput bold)$(tput setaf 4)CPU:$(tput sgr0)$cpu"
 echo "    $(tput bold)$(tput setaf 4)RAM (used / total):$(tput sgr0) $free $(tput bold)$(tput setaf 4)/$(tput sgr0) $ram $(tput bold)$(tput setaf 4)Mb$(tput sgr0)"
 echo "    $(tput bold)$(tput setaf 4)CPU Temperature:$(tput sgr0) $temp"
-	#echo "    $(tput bold)$(tput setaf 4)Session Type: $(tput sgr0)SSH"
-#else
-	#echo "    $(tput bold)$(tput setaf 4)Desktop Enviroment:$(tput sgr0) $de $ver"
-#fi
 echo "    $(tput bold)$(tput setaf 4)$me$(tput sgr0) $de $ver"
 echo "    $(tput bold)$(tput setaf 4)Logged in as:$(tput sgr0) $user"
 echo "    $(tput bold)$(tput setaf 4)Kernel:$(tput sgr0) $kernel"
