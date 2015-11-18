@@ -231,7 +231,7 @@ function get_system_stats
 {
 	totalram=$(awk '/MemTotal/{print $2}' /proc/meminfo)
 	ram=$((totalram/1024))
-	free=$(free -mt | grep buffers/cache | awk {'print $3'})
+	free=$(free -mt | awk {print'$4'} | sed -n -e '2{p;q}')
 	user=$(whoami)
 	if [ -z "$SSH_CLIENT" ] || [ -z "$SSH_TTY" ]; then
 		res=$(xdpyinfo | grep dimensions | awk {'print $2'})
