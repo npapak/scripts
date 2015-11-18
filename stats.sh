@@ -47,7 +47,7 @@ unset hour_label # hour/hours
 
 unset totalram   # Size of installed RAM in kilabytes
 unset ram        # Size of installed RAM in megabytes
-unset free	# Size of used RAM in megabytes
+unset free			 # Size of used RAM in megabytes
 unset user       # Name of the user running this script
 unset res        # Resolution of the current X session
 unset load       # Load average since the last reboot
@@ -354,7 +354,7 @@ elif [ "$label" = '2' ]; then
 	echo "    $(tput bold)$(tput setaf 4)Uptime:$(tput sgr0) $days hours"
 fi
 echo "    $(tput bold)$(tput setaf 4)CPU:$(tput sgr0)$cpu"
-echo "    $(tput bold)$(tput setaf 4)RAM (used / total):$(tput sgr0) $free $(tput bold)$(tput setaf 4)/$(tput sgr0) $ram $(tput bold)$(tput setaf 4)Mb$(tput sgr0)"
+echo "    $(tput bold)$(tput setaf 4)RAM (used / total):$(tput sgr0) $((ram-free)) $(tput bold)$(tput setaf 4)/$(tput sgr0) $ram $(tput bold)$(tput setaf 4)Mb$(tput sgr0)"
 echo "    $(tput bold)$(tput setaf 4)CPU Temperature:$(tput sgr0) $temp"
 echo "    $(tput bold)$(tput setaf 4)$me$(tput sgr0) $de $ver"
 echo "    $(tput bold)$(tput setaf 4)Logged in as:$(tput sgr0) $user"
